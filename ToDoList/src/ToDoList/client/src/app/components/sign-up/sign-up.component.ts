@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { SignUpModel } from '../../services/models/sign-up-model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,7 +15,7 @@ import { SignUpModel } from '../../services/models/sign-up-model';
 export class SignUpComponent implements OnInit {
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router ) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -31,8 +32,13 @@ export class SignUpComponent implements OnInit {
     if (this.form.valid) {
       const user: SignUpModel = this.form.value;
       this.authService.signUp(user).subscribe({
-        next: res => console.log('User signed up', res),
-        error: err => console.error(err),
+        next: () => {
+          // ✅ After successful sign-up
+          this.router.navigate(['/login']);
+        },
+        error: (err) => {
+          console.error('Sign-up failed:', err);
+        }
       });
     }
   }

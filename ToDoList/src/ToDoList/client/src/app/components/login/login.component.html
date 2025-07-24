@@ -1,24 +1,28 @@
-<!-- <div class="container mt-5">
+<div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-5">
-      <div class="card shadow-lg">
-        <div class="card-header bg-success text-white text-center">
-          <h4>Login</h4>
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white text-center py-2">
+          <h5 class="mb-0">Login</h5>
         </div>
-        <div class="card-body">
+        <div class="card-body px-3 py-2">
           <form [formGroup]="form" (ngSubmit)="login()">
-            <div class="mb-3">
-              <label class="form-label">Username</label>
-              <input class="form-control" formControlName="userName" placeholder="Enter username" />
+            <div class="mb-2">
+              <label class="form-label small">Username or Email</label>
+              <input class="form-control form-control-sm" formControlName="userName" placeholder="Enter username" />
             </div>
-            <div class="mb-3">
-              <label class="form-label">Password</label>
-              <input class="form-control" type="password" formControlName="password" placeholder="Enter password" />
+            <div class="mb-2">
+              <label class="form-label small">Password</label>
+              <input type="password" class="form-control form-control-sm" formControlName="password" placeholder="Enter password" />
             </div>
-            <button type="submit" class="btn btn-success w-100">Login</button>
+            <button type="submit" class="btn btn-sm btn-primary w-100 mt-2">Login</button>
           </form>
+           <div class="text-center mt-3">
+            <small class="text-muted">Don't have an account?</small>
+            <a routerLink="/sign-up" class="ms-1">Sign up here</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div> -->
+</div>

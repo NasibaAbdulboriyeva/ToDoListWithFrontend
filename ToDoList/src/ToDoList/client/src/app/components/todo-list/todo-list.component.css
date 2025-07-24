@@ -1,0 +1,6 @@
+/* todo-list.component.css */
+.card-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
